@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: exchange-service
+  cloud:
+    config:
+      enabled: false
+  jpa:
+    show-sql: true
+  h2:
+    console:
+      enabled: true
+
+server:
+  port: 8001
+
+endpoints:
+  base-url: http://data.fixer.io/api/
+  access-key: 2d0ac6f1642617eb7fcbc9f319e3d650
+  latest: ${endpoints.base-url}latest?access_key=${endpoints.access-key}
+  historical: ${endpoints.base-url}historical?access_key=${endpoints.access-key}
+  symbols: ${endpoints.base-url}symbols?access_key=${endpoints.access-key}
+  convert: ${endpoints.base-url}convert?access_key=${endpoints.access-key}
+  fluctuation: ${endpoints.base-url}fluctuation?access_key=${endpoints.access-key}
